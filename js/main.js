@@ -46,6 +46,15 @@ function getRandomInt(min, max) {
 }
 
 /**
+ * Получение случайного элемента массива
+ * @param {number} array - массив
+ * @returns {} - случайный элемент массива
+ */
+function getRandomArrayElement (array) {
+  return array[getRandomInt(0, array.length - 1)];
+}
+
+/**
  * Генератор комментариев
  *
  * @returns {Array} - массив объектов-комментариев к фотографиям
@@ -58,8 +67,8 @@ function createCommentsGenerator() {
       const newComment = {
         id: maxId,
         avatar: `img/avatar-${getRandomInt(1, 6)}.svg`,
-        name: NAMES[getRandomInt(0, PHRASES.length - 1)],
-        message: PHRASES[getRandomInt(0, PHRASES.length - 1)]
+        name: getRandomArrayElement(NAMES),
+        message: getRandomArrayElement(PHRASES)
       };
       comments.push(newComment);
       maxId++;
@@ -81,7 +90,7 @@ function createPhotos(count) {
     const newPhoto = {
       id: i,
       url: `photos/${i}.jpg`,
-      description: DESCRIPTIONS[getRandomInt(0, DESCRIPTIONS.length - 1)],
+      description: getRandomArrayElement(DESCRIPTIONS),
       likes: getRandomInt(1, 200),
       comments: generateComments(getRandomInt(0, 30))
     };
