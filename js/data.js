@@ -70,7 +70,7 @@ function createPhotos(count) {
   for (let i = 0; i < count; i++) {
     const newPhoto = {
       id: i,
-      url: `photos/${i}.jpg`,
+      url: `photos/${i + 1}.jpg`,
       description: getRandomArrayElement(DESCRIPTIONS),
       likes: getRandomInt(1, 200),
       comments: generateComments(getRandomInt(0, 30))
